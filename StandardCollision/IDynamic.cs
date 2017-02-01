@@ -9,9 +9,8 @@ using Microsoft.Xna.Framework.Input;
 
 namespace StandardCollision
 {
-    public interface ICollider : IObject   //Is also an obvject
+    public interface IDynamic : IObject //Is also an object
     {
-        bool isActive { get; set; }
-        Rectangle Rect { get; set; }      //rectagle that is the collider of the object and the position the texture is drawn at.
+        Vector2 Velocity { get; set; }  //velocity is the force and object gets added to the position each frame.
     }
 }

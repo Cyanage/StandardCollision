@@ -9,8 +9,9 @@ using Microsoft.Xna.Framework.Input;
 
 namespace StandardCollision
 {
-    interface IVelocity
+    public abstract class Scene //TODO: this
     {
-        Vector2 ObjectVelocity { get; set; } //velocity is the force and object gets added to the position each frame.
+        public abstract void Update();
+        public abstract void Draw(SpriteBatch spriteBatch);
     }
 }
