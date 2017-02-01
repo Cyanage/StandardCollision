@@ -15,7 +15,7 @@ namespace StandardCollision
         string Tag { get; set; }            //All objects have a tag so you can find / catagorize them
         Point Position { get; set; }        //Position of the object
         Texture2D Texture { get; set; }     //Texture of the object
-        Point TextureSize { get; set; }     //size of the texture
+        Point TextureSize { get; set; }     //Size of the texture
 
         void Draw(SpriteBatch spriteBatch); //draw method for the object
     }

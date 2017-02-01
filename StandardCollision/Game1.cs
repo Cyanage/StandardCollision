@@ -29,7 +29,7 @@ namespace StandardCollision
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            ColliderManager.Initialize();
+            //WorldManager.Initialize();
         }
 
         protected override void UnloadContent()
@@ -42,7 +42,7 @@ namespace StandardCollision
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            ColliderManager.Update();
+            //WorldManager.Update();
             base.Update(gameTime);
         }
 
@@ -50,7 +50,7 @@ namespace StandardCollision
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            ColliderManager.Draw(spriteBatch);
+            //WorldManager.Draw(spriteBatch);
             base.Draw(gameTime);
         }
     }
