@@ -16,42 +16,44 @@ namespace StandardCollision
         public abstract bool Active { get; set; }       
 
         //holds the list values for objects, colliders, and dynamic objects
-        public abstract List<IObject> ObjectList { get; set; }
-        public abstract List<ICollider> ColliderList { get; set; }
-        public abstract List<IDynamic> DynamicList { get; set; }
+        public abstract List<IObject> objectList { get; set; }
+        public abstract List<ICollider> colliderList { get; set; }
+        public abstract List<IDynamic> dynamicList { get; set; }
 
         public void AddStaticObject(IObject obj)
         {
-            ObjectList.Add(obj);
+            objectList.Add(obj);
         }
 
         public void AddDynamicObject(IDynamic dynamic)
         {
-            ObjectList.Add(dynamic);
-            DynamicList.Add(dynamic);
+            objectList.Add(dynamic);
+            dynamicList.Add(dynamic);
         }
 
         public void AddDynamicCollider(ICollider col, IDynamic dynamic)
         {
-            ObjectList.Add(dynamic);
-            ColliderList.Add(col);
-            DynamicList.Add(dynamic);
+            objectList.Add(dynamic);
+            colliderList.Add(col);
+            dynamicList.Add(dynamic);
         }
 
         public void AddCollider(ICollider col)
         {
-            ObjectList.Add(col);
-            ColliderList.Add(col);
+            objectList.Add(col);
+            colliderList.Add(col);
         }
 
+        //TODO: HiddenUpdate() that calls Update()?  can have foreach that cdalls the update for each object.
         public abstract void Update();
-        public void Draw(SpriteBatch spriteBatch) //no collider or dynamic, draw the object.
+        public void Draw(SpriteBatch spriteBatch) //no collider or dynamic, draw the object part.
         {
-            foreach (IObject obj in ObjectList)
+            foreach (IObject obj in objectList)
             {
                 obj.Draw(spriteBatch);
             }
         }
+
         public void Collision() //TODO: add collision logic here.
         {
 

@@ -17,6 +17,7 @@ namespace StandardCollision
         Texture2D Texture { get; set; }     //Texture of the object
         Point TextureSize { get; set; }     //Size of the texture
 
+        void Update();
         void Draw(SpriteBatch spriteBatch); //draw method for the object
     }
 }
