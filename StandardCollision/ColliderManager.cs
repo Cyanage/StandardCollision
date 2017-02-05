@@ -44,7 +44,7 @@ namespace StandardCollision
                                                                           playerCollider.Rect.Y,
                                                                           playerCollider.Rect.Width,
                                                                           playerCollider.Rect.Height);
-                                playerVelocity.Velocity = new Vector2(0, playerVelocity.Velocity.Y); //when the player hits an object velocity disapears in one axis
+                                playerVelocity.Velocity = new Point(0, playerVelocity.Velocity.Y); //when the player hits an object velocity disapears in one axis
                             }
                             else
                             {
@@ -52,7 +52,7 @@ namespace StandardCollision
                                                                           playerCollider.Rect.Y + (col.Rect.Height - (playerCollider.Rect.Y - col.Rect.Y)),
                                                                           playerCollider.Rect.Width,
                                                                           playerCollider.Rect.Height);
-                                playerVelocity.Velocity = new Vector2(playerVelocity.Velocity.X, 0); //when the player hits an object velocity disapears in one axis
+                                playerVelocity.Velocity = new Point(playerVelocity.Velocity.X, 0); //when the player hits an object velocity disapears in one axis
 
                             }
                         }
@@ -64,7 +64,7 @@ namespace StandardCollision
                                                                           playerCollider.Rect.Y,
                                                                           playerCollider.Rect.Width,
                                                                           playerCollider.Rect.Height);
-                                playerVelocity.Velocity = new Vector2(0, playerVelocity.Velocity.Y); //when the player hits an object velocity disapears in one axis
+                                playerVelocity.Velocity = new Point(0, playerVelocity.Velocity.Y); //when the player hits an object velocity disapears in one axis
                             }
                             else
                             {
@@ -72,7 +72,7 @@ namespace StandardCollision
                                                                           playerCollider.Rect.Y - (playerCollider.Rect.Height + (playerCollider.Rect.Y - col.Rect.Y)),
                                                                           playerCollider.Rect.Width,
                                                                           playerCollider.Rect.Height);
-                                playerVelocity.Velocity = new Vector2(playerVelocity.Velocity.X, 0); //when the player hits an object velocity disapears in one axis
+                                playerVelocity.Velocity = new Point(playerVelocity.Velocity.X, 0); //when the player hits an object velocity disapears in one axis
 
                             }
                         }
@@ -87,7 +87,7 @@ namespace StandardCollision
                                                                           playerCollider.Rect.Y,
                                                                           playerCollider.Rect.Width,
                                                                           playerCollider.Rect.Height);
-                                playerVelocity.Velocity = new Vector2(0, playerVelocity.Velocity.Y); //when the player hits an object velocity disapears in one axis
+                                playerVelocity.Velocity = new Point(0, playerVelocity.Velocity.Y); //when the player hits an object velocity disapears in one axis
                             }
                             else
                             {
@@ -95,7 +95,7 @@ namespace StandardCollision
                                                                           playerCollider.Rect.Y + (col.Rect.Height - (playerCollider.Rect.Y - col.Rect.Y)),
                                                                           playerCollider.Rect.Width,
                                                                           playerCollider.Rect.Height);
-                                playerVelocity.Velocity = new Vector2(playerVelocity.Velocity.X, 0); //when the player hits an object velocity disapears in one axis
+                                playerVelocity.Velocity = new Point(playerVelocity.Velocity.X, 0); //when the player hits an object velocity disapears in one axis
                             }
                         }
                         else
@@ -106,7 +106,7 @@ namespace StandardCollision
                                                                           playerCollider.Rect.Y,
                                                                           playerCollider.Rect.Width,
                                                                           playerCollider.Rect.Height);
-                                playerVelocity.Velocity = new Vector2(0, playerVelocity.Velocity.Y); //when the player hits an object velocity disapears in one axis
+                                playerVelocity.Velocity = new Point(0, playerVelocity.Velocity.Y); //when the player hits an object velocity disapears in one axis
                             }
                             else
                             {
@@ -114,7 +114,7 @@ namespace StandardCollision
                                                                           playerCollider.Rect.Y - (playerCollider.Rect.Height + (playerCollider.Rect.Y - col.Rect.Y)),
                                                                           playerCollider.Rect.Width,
                                                                           playerCollider.Rect.Height);
-                                playerVelocity.Velocity = new Vector2(playerVelocity.Velocity.X, 0); //when the player hits an object velocity disapears in one axis
+                                playerVelocity.Velocity = new Point(playerVelocity.Velocity.X, 0); //when the player hits an object velocity disapears in one axis
                             }
                         }
                     }

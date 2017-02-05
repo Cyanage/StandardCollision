@@ -9,19 +9,24 @@ using Microsoft.Xna.Framework.Input;
 
 namespace StandardCollision
 {
-    public enum CollisionType   //TODO: implement this into the abstract scene class's collision
+    public enum CollisionType
     {                   
-        Regular,        //Scene does rect collision and calls its OnCollision method
+        Dynamic,        //Scene does rect collision and calls its OnCollision method
         Trigger,        //Collider does not collide but calls ITS OnCollision method.  if an object hits this its OnCollision method is not called.
         Wall,           //Collider cannot be moved during dynamic Collision.  If a dynamic object runs into this and this is dynamic, this will not be pushed.
-        Simple          //Collider does rect collision and does NOT call its OnCollision method
+        Simple,         //Collider does rect collision and does NOT call its OnCollision method
+        SimpleWall      //Simple + Wall
     };
 
     public interface ICollider : IObject    //Is also an object... what if dynamic collider, two objects?  TODO: this
     {
-        bool isActive { get; set; }         //is the collider active?
+        bool isActive { get; set; }         //sees if the collider is active
+
+        /// <summary>
+        /// If this collider is not dynamic do not choose Dynamic as collision type.
+        /// </summary>
+        CollisionType collisionType { get; set; }   //holds the type of collision this collider object has
 
         void OnCollision();                 //oncollision
-        CollisionType collisionType { get; set; }   //holds the type of collision this collider object has
     }
 }

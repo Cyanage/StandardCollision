@@ -46,6 +46,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scene.cs" />
+    <Compile Include="SceneCollision.cs" />
     <Compile Include="Tiling.cs" />
     <Compile Include="World.cs" />
   </ItemGroup>
