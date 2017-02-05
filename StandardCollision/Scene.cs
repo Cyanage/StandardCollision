@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace StandardCollision
 {
-    public abstract class Scene //TODO: this?  done?
+    public abstract class Scene : SceneCollision    //TODO: this?  done?
     {
         //hold if the scene is active or not, pretty much the current scene. 
         //If a scene is not active it is not drawing its objects and not updating or checking collision for them  

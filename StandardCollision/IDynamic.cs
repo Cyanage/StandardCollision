@@ -11,6 +11,6 @@ namespace StandardCollision
 {
     public interface IDynamic : IObject //Is also an object
     {
-        Vector2 Velocity { get; set; }  //velocity is the force and object gets added to the position each frame.
+        Vector2 Velocity { get; set; }  //velocity is the force the object gets added to the position each frame.
     }
 }
