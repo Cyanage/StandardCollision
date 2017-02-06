@@ -64,7 +64,65 @@ namespace StandardCollision
 
         public void RegularCollision(ICollider col1, ICollider col2)  //collision where both objects are pushed back.
         {
-            //TODO: this
+            //TODO: re-check this, prolly done
+            if (col1.Rect.X > col2.Rect.X) //finds what side of the wall the player is on (X axis)
+            {
+                if (col1.Rect.Y > col2.Rect.Y) //ditto but with Y
+                {   //  Intersect rectangle width                       <  Intersect rectangle height 
+                    if ((col2.Rect.Width - (col1.Rect.X - col2.Rect.X)) < (col2.Rect.Height - (col1.Rect.Y - col2.Rect.Y))) //Checks which direction to push the colliders
+                    {
+                        col1.Rect = new Rectangle(col1.Rect.X + (col2.Rect.Width - (col1.Rect.X - col2.Rect.X)) / 2, col1.Rect.Y, col1.Rect.Width, col1.Rect.Height);  //pushes col1 back half.
+                        col2.Rect = new Rectangle(col2.Rect.X - (col2.Rect.Width - (col1.Rect.X - col2.Rect.X)) / 2, col2.Rect.Y, col2.Rect.Width, col2.Rect.Height);  //and col2 back the other half in the opposite direction.
+                    }
+                    else
+                    {
+                        col1.Rect = new Rectangle(col1.Rect.X, col1.Rect.Y + (col2.Rect.Height - (col1.Rect.Y - col2.Rect.Y)) / 2, col1.Rect.Width, col1.Rect.Height);  //pushes col1 back half.
+                        col2.Rect = new Rectangle(col2.Rect.X, col2.Rect.Y - (col2.Rect.Height - (col1.Rect.Y - col2.Rect.Y)) / 2, col2.Rect.Width, col2.Rect.Height);  //and col2 back the other half in the opposite direction.
+                    }
+                }
+                else
+                {   //  Intersect rectangle width                       <  Intersect rectangle height 
+                    if ((col2.Rect.Width - (col1.Rect.X - col2.Rect.X)) < (col1.Rect.Height + (col1.Rect.Y - col2.Rect.Y))) //Checks which direction to push the colliders
+                    {
+                        col1.Rect = new Rectangle(col1.Rect.X + (col2.Rect.Width - (col1.Rect.X - col2.Rect.X)) / 2, col1.Rect.Y, col1.Rect.Width, col1.Rect.Height);  //pushes col1 back half.
+                        col2.Rect = new Rectangle(col2.Rect.X - (col2.Rect.Width - (col1.Rect.X - col2.Rect.X)) / 2, col2.Rect.Y, col2.Rect.Width, col2.Rect.Height);  //and col2 back the other half in the opposite direction.
+                    }
+                    else
+                    {
+                        col1.Rect = new Rectangle(col1.Rect.X, col1.Rect.Y - (col1.Rect.Height + (col1.Rect.Y - col2.Rect.Y)) / 2, col1.Rect.Width, col1.Rect.Height);  //pushes col1 back half.
+                        col2.Rect = new Rectangle(col2.Rect.X, col2.Rect.Y + (col1.Rect.Height + (col1.Rect.Y - col2.Rect.Y)) / 2, col2.Rect.Width, col2.Rect.Height);  //and col2 back the other half in the opposite direction.
+                    }
+                }
+            }
+            else
+            {
+                if (col1.Rect.Y > col2.Rect.Y)
+                {   //  Intersect rectangle width                       <  Intersect rectangle height 
+                    if ((col1.Rect.Width + (col1.Rect.X - col2.Rect.X)) < (col2.Rect.Height - (col1.Rect.Y - col2.Rect.Y))) //Checks which direction to push the colliders
+                    {
+                        col1.Rect = new Rectangle(col1.Rect.X - (col1.Rect.Width + (col1.Rect.X - col2.Rect.X)) / 2, col1.Rect.Y, col1.Rect.Width, col1.Rect.Height);
+                        col2.Rect = new Rectangle(col2.Rect.X + (col1.Rect.Width + (col1.Rect.X - col2.Rect.X)) / 2, col2.Rect.Y, col2.Rect.Width, col2.Rect.Height);
+                    }
+                    else
+                    {
+                        col1.Rect = new Rectangle(col1.Rect.X, col1.Rect.Y + (col2.Rect.Height - (col1.Rect.Y - col2.Rect.Y)) / 2, col1.Rect.Width, col1.Rect.Height);
+                        col2.Rect = new Rectangle(col2.Rect.X, col2.Rect.Y - (col2.Rect.Height - (col1.Rect.Y - col2.Rect.Y)) / 2, col2.Rect.Width, col2.Rect.Height);
+                    }
+                }
+                else
+                {   //  Intersect rectangle width                       <  Intersect rectangle height 
+                    if ((col1.Rect.Width + (col1.Rect.X - col2.Rect.X)) < (col1.Rect.Height + (col1.Rect.Y - col2.Rect.Y))) //Checks which direction to push the colliders
+                    {
+                        col1.Rect = new Rectangle(col1.Rect.X - (col1.Rect.Width + (col1.Rect.X - col2.Rect.X)) / 2, col1.Rect.Y, col1.Rect.Width, col1.Rect.Height);
+                        col2.Rect = new Rectangle(col2.Rect.X + (col1.Rect.Width + (col1.Rect.X - col2.Rect.X)) / 2, col2.Rect.Y, col2.Rect.Width, col2.Rect.Height);
+                    }
+                    else
+                    {
+                        col1.Rect = new Rectangle(col1.Rect.X, col1.Rect.Y - (col1.Rect.Height + (col1.Rect.Y - col2.Rect.Y)) / 2, col1.Rect.Width, col1.Rect.Height);
+                        col2.Rect = new Rectangle(col2.Rect.X, col2.Rect.Y - (col1.Rect.Height + (col1.Rect.Y - col2.Rect.Y)) / 2, col2.Rect.Width, col2.Rect.Height);
+                    }
+                }
+            }
         }
 
         public void WallCollision(ICollider col1, ICollider col2)  //collision where collider two is pushed back
@@ -73,7 +131,7 @@ namespace StandardCollision
             {
                 if (col1.Rect.Y > col2.Rect.Y) //ditto but with Y
                 {
-                    if ((col2.Rect.Width - (col1.Rect.X - col2.Rect.X)) < (col2.Rect.Height - (col1.Rect.Y - col2.Rect.Y))) //Checks which direction to push the character
+                    if ((col2.Rect.Width - (col1.Rect.X - col2.Rect.X)) < (col2.Rect.Height - (col1.Rect.Y - col2.Rect.Y))) //Checks which direction to push the collider
                     {
                         col1.Rect = new Rectangle(col1.Rect.X + (col2.Rect.Width - (col1.Rect.X - col2.Rect.X)), col1.Rect.Y, col1.Rect.Width, col1.Rect.Height);
                     }
@@ -84,7 +142,7 @@ namespace StandardCollision
                 }
                 else
                 {
-                    if ((col2.Rect.Width - (col1.Rect.X - col2.Rect.X)) < (col1.Rect.Height + (col1.Rect.Y - col2.Rect.Y))) //Checks which direction to push the character
+                    if ((col2.Rect.Width - (col1.Rect.X - col2.Rect.X)) < (col1.Rect.Height + (col1.Rect.Y - col2.Rect.Y))) //Checks which direction to push the collider
                     {
                         col1.Rect = new Rectangle(col1.Rect.X + (col2.Rect.Width - (col1.Rect.X - col2.Rect.X)), col1.Rect.Y, col1.Rect.Width, col1.Rect.Height);
                     }
@@ -99,7 +157,7 @@ namespace StandardCollision
             {
                 if (col1.Rect.Y > col2.Rect.Y)
                 {
-                    if ((col1.Rect.Width + (col1.Rect.X - col2.Rect.X)) < (col2.Rect.Height - (col1.Rect.Y - col2.Rect.Y))) //Checks which direction to push the character
+                    if ((col1.Rect.Width + (col1.Rect.X - col2.Rect.X)) < (col2.Rect.Height - (col1.Rect.Y - col2.Rect.Y))) //Checks which direction to push the collider
                     {
                         col1.Rect = new Rectangle(col1.Rect.X - (col1.Rect.Width + (col1.Rect.X - col2.Rect.X)), col1.Rect.Y, col1.Rect.Width, col1.Rect.Height);
                     }
@@ -110,7 +168,7 @@ namespace StandardCollision
                 }
                 else
                 {
-                    if ((col1.Rect.Width + (col1.Rect.X - col2.Rect.X)) < (col1.Rect.Height + (col1.Rect.Y - col2.Rect.Y))) //Checks which direction to push the character
+                    if ((col1.Rect.Width + (col1.Rect.X - col2.Rect.X)) < (col1.Rect.Height + (col1.Rect.Y - col2.Rect.Y))) //Checks which direction to push the collider
                     {
                         col1.Rect = new Rectangle(col1.Rect.X - (col1.Rect.Width + (col1.Rect.X - col2.Rect.X)), col1.Rect.Y, col1.Rect.Width, col1.Rect.Height);
                     }
