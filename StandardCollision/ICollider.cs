@@ -20,6 +20,7 @@ namespace StandardCollision
 
     public interface ICollider : IObject    //Is also an object... what if dynamic collider, two objects?  TODO: this
     {
+        //TODO: add resizing
         bool isActive { get; set; }         //sees if the collider is active
 
         /// <summary>
