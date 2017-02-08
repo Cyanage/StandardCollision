@@ -22,7 +22,7 @@ namespace StandardCollision
         //dynamic list does not call draw or update for it's class becasue it is a separate interface that object while collider is the same interface.
         public abstract List<IDynamic> dynamicList { get; set; }    //''
 
-        public abstract void Update();
+        public abstract void SceneUpdate();
 
         public void HiddenUpdate()
         {
@@ -50,7 +50,7 @@ namespace StandardCollision
                 col.Update();
             }
 
-            Update();
+            SceneUpdate();
         }
 
         public void AddObject(IObject obj)  //adds an object to the scene
