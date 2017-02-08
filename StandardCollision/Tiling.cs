@@ -12,7 +12,15 @@ namespace StandardCollision
     public abstract class Tiling //TODO: this, add tiling background logic.
     {
         //TODO: add collider resizing
-        public void TilingUpdate(SpriteBatch spriteBatch, Texture2D tex, Rectangle rect, Point offSet, Point textureSize)  //will update and draw the tiles.
+        /// <summary>
+        /// Draws the tiles of the object, if using this don't draw the object (again) :C
+        /// </summary>
+        /// <param name="spriteBatch"></param>
+        /// <param name="tex"></param>
+        /// <param name="rect"></param>
+        /// <param name="offSet">the offset of the texture</param>
+        /// <param name="textureSize"></param>
+        public void TilingDraw(SpriteBatch spriteBatch, Texture2D tex, Rectangle rect, Point offSet, Point textureSize)  //will update and draw the tiles.
         {
             for (int i = 0; i < tiles.X; i++)
             {
