@@ -13,7 +13,7 @@ namespace StandardCollision
     {
         //hold if the scene is active or not, pretty much the current scene. 
         //If a scene is not active it is not drawing its objects and not updating or checking collision for them  
-        public abstract bool Active { get; set; }       
+        //public abstract bool Active { get; set; }       //TODO: make sure this is obselete
 
         //holds the list values for objects, colliders, and dynamic objects
         public abstract List<IObject> objectList { get; set; }      //private?
@@ -77,12 +77,14 @@ namespace StandardCollision
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            spriteBatch.Begin();  //start drawing   //TODO: put camera here
             foreach (IObject obj in objectList) {  //draws objects
                 obj.Draw(spriteBatch);
             }
             foreach (ICollider col in objectList) {  //draws colliders
                 col.Draw(spriteBatch);
             }
+            spriteBatch.End();  //stop drawing
         }
 
         public void Collision()  //TODO: add collision logic here.  //done?

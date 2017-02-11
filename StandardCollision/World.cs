@@ -13,11 +13,16 @@ namespace StandardCollision
     {
         //hold if the world is active or not. 
         //If a world is not active it is not drawing its objects or updating them.  
-        public abstract bool Active { get; set; }
+        //public abstract bool Active { get; set; }     TODO: make sure this is obselete
 
         public abstract List<Scene> sceneList { get; set; }  //holds all of the scenes in the world
         public abstract Scene activeScene { get; set; }  //holds the active scene that is currently getting drawn and updated.
-        
+
+        public void SetActiveScene(Scene toBeActiveScene)
+        {
+            activeScene = toBeActiveScene;  //sets the active scene
+        }
+
         public void WorldUpdate ()
         {
             activeScene.HiddenUpdate();  //calls the hidden update method which in turn calls the regular update method.
