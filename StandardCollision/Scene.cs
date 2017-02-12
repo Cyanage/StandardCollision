@@ -9,11 +9,12 @@ using Microsoft.Xna.Framework.Input;
 
 namespace StandardCollision
 {
-    public abstract class Scene : SceneCollision    //TODO: this, done?
+    public abstract class Scene : SceneCollision
     {
         //hold if the scene is active or not, pretty much the current scene. 
         //If a scene is not active it is not drawing its objects and not updating or checking collision for them  
-        //public abstract bool Active { get; set; }       //TODO: make sure this is obselete
+        //public abstract bool Active { get; set; }       
+        //TODO: make sure this is obselete
 
         //holds the list values for objects, colliders, and dynamic objects
         public abstract List<IObject> objectList { get; set; }      //private?
@@ -87,7 +88,7 @@ namespace StandardCollision
             spriteBatch.End();  //stop drawing
         }
 
-        public void Collision()  //TODO: add collision logic here.  //done?
+        public void Collision()
         {
             foreach (ICollider col in colliderList)
             {

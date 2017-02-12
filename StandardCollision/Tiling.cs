@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace StandardCollision
 {
-    public abstract class TileSet //TODO: this, add tiling background logic.
+    public abstract class TileSet 
     {
         //TODO: add collider resizing (tiles needs to change size wehn the rectangle changes sizes)
 
