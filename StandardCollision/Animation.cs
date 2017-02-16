@@ -51,13 +51,20 @@ namespace StandardCollision
             framesInAnimation.Add(textureRowsHorizontal * textureColumnsVertical);  //how many frames the animation has
             animations.Add(textureAtlas);
 
-            activeAnimation = animations.Count - 1;  //sets active animation panel
+            activeAnimation = animations.Count - 1;  //sets active animation
         }
 
         /// <param name="index">number to find the animation, first animation added is 0, 1, 2, 3, etc.</param>
-        public void ActivateAnimation(int index)
+        public void PlayAnimation(int index, int animationFramePerFrames=-1)
         {
             activeAnimation = index;  //sets active animation
+            currentAnimationFrame = 0;
+            framesTilNextAnimationFrame = 0;
+
+            if (animationFramePerFrames == -1)  //-1 means dont change
+            {
+                this.animationFramePerFrames = animationFramePerFrames;
+            }
         }
 
         /// <summary>
@@ -75,7 +82,7 @@ namespace StandardCollision
 
                 Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);  //finds the tiny rectangle inside of the texture atlas to draw.
 
-                if (currentAnimationFrame < framesInAnimation[activeAnimation])  //checks if the animation need to reste to the first state.  //TODO: make sure this works
+                if (currentAnimationFrame < framesInAnimation[activeAnimation])  //checks if the animation need to reset to the first state.  //TODO: make sure this works
                 {
                     spriteBatch.Draw(animations[activeAnimation], destinationRect, sourceRectangle, Color.White);  //draws the current animation frame in this animation
                     currentAnimationFrame++;
