@@ -20,7 +20,7 @@ namespace StandardCollision
 
         public void SetActiveScene(Scene toBeActiveScene)
         {
-            activeScene = toBeActiveScene;  //sets the active scene
+            activeScene = toBeActiveScene;
         }
 
         public void WorldUpdate ()
@@ -30,7 +30,7 @@ namespace StandardCollision
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            activeScene.Draw(spriteBatch);  //calls the active scene draw method.
+            activeScene.Draw(spriteBatch);
         } 
     }
 }
