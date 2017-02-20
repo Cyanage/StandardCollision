@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Input;
 namespace StandardCollision
 {
     public enum CollisionType
-    {                   
+    {                  
         Dynamic,        //Scene does rect collision and calls its OnCollision method
         Trigger,        //Collider does not collide but calls ITS OnCollision method.  if an object hits this its OnCollision method is not called.
         Wall,           //Collider cannot be moved during dynamic Collision.  If a dynamic object runs into this and this is dynamic, this will not be pushed.
@@ -21,7 +21,7 @@ namespace StandardCollision
     public interface ICollider : IObject    //Is also an object... what if dynamic collider, two objects?  TODO: this
     {
         //TODO: add resizing
-        bool isActive { get; set; }         //sees if the collider is active
+        bool isActive { get; set; }
 
         /// <summary>
         /// If this collider is not dynamic do not choose Dynamic as collision type.

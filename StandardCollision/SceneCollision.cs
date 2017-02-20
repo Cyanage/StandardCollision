@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace StandardCollision
 {
-    public abstract class SceneCollision //holds collision logic
+    public class SceneCollision //holds collision logic
     {
         //If only one collider is static (wall) it will be col2
         //In dynamic to static collision static is col2
