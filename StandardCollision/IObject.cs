@@ -14,7 +14,7 @@ namespace StandardCollision
         /// <summary>
         /// Define this bool as true if the collider is dynamic, if else false.
         /// </summary>
-        bool isDynamic { get; }        //Checks if object is dynamic.      //make sure to define an object as dynamic if it is dynamic      //no set cause you dont want to change it
+        bool isDynamic { get; }         //make sure to define an object as dynamic if it is dynamic      //no set cause you dont want to change it
 
         string Tag { get; set; }            //All objects have a tag so you can find / catagorize them
         Rectangle Rect { get; set; }        //Position of the object
@@ -22,6 +22,6 @@ namespace StandardCollision
         Point TextureSize { get; set; }     //Size of the texture
 
         void Update();
-        void Draw(SpriteBatch spriteBatch); //draw method for the object
+        void Draw(SpriteBatch spriteBatch); //Main draw method for the object
     }
 }

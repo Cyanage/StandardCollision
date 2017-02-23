@@ -67,6 +67,11 @@ namespace StandardCollision
             }
         }
 
+        public void StopAnimation() //TODO: Implement this.
+        {
+
+        }
+
         /// <summary>
         /// please call this in the Draw() method.
         /// </summary>
@@ -82,7 +87,7 @@ namespace StandardCollision
 
                 Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);  //finds the tiny rectangle inside of the texture atlas to draw.
 
-                if (currentAnimationFrame < framesInAnimation[activeAnimation])  //checks if the animation need to reset to the first state.  //TODO: make sure this works
+                if (currentAnimationFrame < framesInAnimation[activeAnimation])  //checks if the animation need to reset to the first state.
                 {
                     spriteBatch.Draw(animations[activeAnimation], destinationRect, sourceRectangle, Color.White);  //draws the current animation frame in this animation
                     currentAnimationFrame++;
