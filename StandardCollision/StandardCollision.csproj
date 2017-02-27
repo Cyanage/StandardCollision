@@ -40,6 +40,7 @@
   <ItemGroup>
     <Compile Include="Animation.cs" />
     <Compile Include="Button.cs" />
+    <Compile Include="Collider.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="ICollider.cs" />
     <Compile Include="IObject.cs" />
@@ -49,7 +50,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scene.cs" />
     <Compile Include="SceneCollision.cs" />
-    <Compile Include="Tiling.cs" />
+    <Compile Include="TileSetCollider.cs" />
+    <Compile Include="TileSetObject.cs" />
     <Compile Include="World.cs" />
     <Compile Include="WorldManager.cs" />
   </ItemGroup>

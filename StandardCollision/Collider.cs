@@ -15,7 +15,7 @@ namespace StandardCollision
 
         public void HiddenUpdate() //nothing here?
         {
-
+            Update();
         }
 
         public void Draw(SpriteBatch spriteBatch)  //draws object's texture.

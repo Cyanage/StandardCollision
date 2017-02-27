@@ -17,17 +17,17 @@ namespace StandardCollision
         //TODO: make sure this ^ is obselete
 
         //holds the list values for objects, colliders, and dynamic objects
-        public abstract List<IObject> objectList { get; set; }      //private?
-        public abstract List<ICollider> colliderList { get; set; }  //''
+        public abstract List<IObject> objectList { get; set; }      
+        public abstract List<ICollider> colliderList { get; set; }  
 
         //dynamic list does not call draw or update for it's class becasue it is a separate interface that object while collider is the same interface.
-        public abstract List<IDynamic> dynamicList { get; set; }    //''
+        public abstract List<IDynamic> dynamicList { get; set; }    
 
         public abstract void SceneUpdate();
 
         public void HiddenUpdate()
         {
-            foreach (IDynamic dynamic in dynamicList) {  //Not the best solution  //moves the object based on the current dynamic variable.
+            foreach (IDynamic dynamic in dynamicList) {  //moves the object based on the current dynamic variable.  //best solution?
                 foreach (IObject obj in dynamicList)  //does it for objects
                 {
                     if (dynamic.GetType() == obj.GetType())  //checks if they both have the same base class.
@@ -45,10 +45,10 @@ namespace StandardCollision
             }
 
             foreach (IObject obj in dynamicList) {  //updates all objects
-                obj.Update();
+                obj.HiddenUpdate();
             }
             foreach (ICollider col in dynamicList) {  //updates all colliders
-                col.Update();
+                col.HiddenUpdate();
             }
 
             SceneUpdate();
