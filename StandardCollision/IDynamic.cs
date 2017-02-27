@@ -16,6 +16,6 @@ namespace StandardCollision
         /// </summary>
         Point Velocity { get; set; }  //velocity is the force the object gets added to the position each frame.
 
-        //TODO: maybe refine the velocity syetem, i.e. make it move every x frames.  MAYBE
+        //TODO: maybe refine the velocity syetem, i.e. make it move every x frames.  MAYBE... not?
     }
 }
