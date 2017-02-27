@@ -34,7 +34,7 @@ namespace StandardCollision
 
         public abstract Point tiles { get; set; }    //amount of tiles object is made of.  
 
-        public bool isDynamic { get { return false; } }  //An object is not dynamic
+        public bool isDynamic { get { return isDynamic; } }  //?
 
         public void HiddenUpdate() //nothing here
         {

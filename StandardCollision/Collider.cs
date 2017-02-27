@@ -11,7 +11,7 @@ namespace StandardCollision
 {
     public abstract class Collider : ICollider //TODO: shit got confusing
     {
-        public bool isDynamic { get { return false; } }  //An object is not dynamic
+        public bool isDynamic { get { return isDynamic; } }  //?
 
         public void HiddenUpdate() //nothing here?
         {
