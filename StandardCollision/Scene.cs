@@ -28,14 +28,14 @@ namespace StandardCollision
         public void HiddenUpdate()
         {
             foreach (IDynamic dynamic in dynamicList) {  //moves the object based on the current dynamic variable.  //best solution?
-                foreach (IObject obj in dynamicList)  //does it for objects
+                foreach (IObject obj in objectList)  //does it for objects
                 {
                     if (dynamic.GetType() == obj.GetType())  //checks if they both have the same base class.
                     {
                         obj.Rect = new Rectangle(obj.Rect.X - dynamic.Velocity.X, obj.Rect.Y, obj.Rect.Width, obj.Rect.Height);
                     }
                 }
-                foreach (ICollider col in dynamicList)  //does it for colliders
+                foreach (ICollider col in colliderList)  //does it for colliders
                 { 
                     if (dynamic.GetType() == col.GetType())  //checks if they both have the same base class.
                     {
@@ -44,10 +44,10 @@ namespace StandardCollision
                 }
             }
 
-            foreach (IObject obj in dynamicList) {  //updates all objects
+            foreach (IObject obj in objectList) {  //updates all objects
                 obj.HiddenUpdate();
             }
-            foreach (ICollider col in dynamicList) {  //updates all colliders
+            foreach (ICollider col in colliderList) {  //updates all colliders
                 col.HiddenUpdate();
             }
 
@@ -78,14 +78,14 @@ namespace StandardCollision
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Begin();  //start drawing   //TODO: put camera here
-            foreach (IObject obj in objectList) {  //draws objects
+            spriteBatch.Begin();   //TODO: put camera stuff here
+            foreach (IObject obj in objectList) {  //draws all objects
                 obj.Draw(spriteBatch);
             }
-            foreach (ICollider col in objectList) {  //draws colliders
+            foreach (ICollider col in colliderList) {  //draws all colliders
                 col.Draw(spriteBatch);
             }
-            spriteBatch.End();  //stop drawing
+            spriteBatch.End();
         }
 
         public void Collision()

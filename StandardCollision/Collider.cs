@@ -9,34 +9,30 @@ using Microsoft.Xna.Framework.Input;
 
 namespace StandardCollision
 {
-    public abstract class Collider : ICollider //TODO: shit got confusing
+    public abstract class Collider : ICollider //TODO: this is done?
     {
-        public bool isDynamic { get { return isDynamic; } }  //?
+        //This is done?
+        public void HiddenUpdate() { Update(); } //nothing here for collider object?
 
-        public void HiddenUpdate() //nothing here?
+        public void Draw(SpriteBatch spriteBatch)  //draws object's texture if visible
         {
-            Update();
+            if (isVisible == true)
+                spriteBatch.Draw(Texture, Rect, Color.White);
         }
 
-        public void Draw(SpriteBatch spriteBatch)  //draws object's texture.
-        {
-            spriteBatch.Draw(Texture, Rect, Color.White);
-        }
-
-        public abstract bool isVisible { get; set; }  //is the obejct drawn to the screen.
-
-        public abstract string Tag { get; set; }            //All objects have a tag so you can find / catagorize them
-        public abstract Rectangle Rect { get; set; }        //Position of the object
-        public abstract Texture2D Texture { get; set; }     //Texture of the object
-        public abstract Point TextureSize { get; set; }     //Size of the texture
+        public abstract bool isDynamic { get; set; }
+        public abstract bool isVisible { get; set; }  //is the object drawn to the screen.
+        public abstract string Tag { get; set; }  //All objects have a tag so you can find / catagorize them
+        public abstract Rectangle Rect { get; set; }  //Position of the object
+        public abstract Texture2D Texture { get; set; }
+        public abstract Point TextureSize { get; set; }  //Size of the texture (if texture needs to be larger or smaller than rect bounds)
 
         public abstract void Update();
 
-
-        public abstract bool isActive { get; set; } //collider active
-
+        //Collider stuff
+        public abstract bool isColliderActive { get; set; }  //collider wise
         public abstract CollisionType collisionType { get; set; }   //holds the type of collision this collider object has
 
-        public abstract void OnCollision();    //oncollision
+        public abstract void OnCollision();
     }
 }

@@ -18,16 +18,15 @@ namespace StandardCollision
         SimpleWall      //Simple + Wall
     };
 
-    public interface ICollider : IObject    //Is also an object... what if dynamic collider, two objects?  TODO: this
+    public interface ICollider : IObject
     {
-        //TODO: add resizing
-        bool isActive { get; set; }
-
+        bool isColliderActive { get; set; }  //does the collider work
         /// <summary>
         /// If this collider is not dynamic do not choose Dynamic as collision type.
         /// </summary>
         CollisionType collisionType { get; set; }   //holds the type of collision this collider object has
+        Point TextureSize { get; set; }     //Size of the texture (if texture needs to be larger or smaller than the collider size)
 
-        void OnCollision();                 //oncollision
+        void OnCollision();  //is called when  the object does a not simple collision
     }
 }
