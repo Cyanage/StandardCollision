@@ -39,8 +39,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Animation.cs" />
-    <Compile Include="Button.cs" />
-    <Compile Include="Collider.cs" />
+    <Compile Include="ButtonCollider.cs" />
+    <Compile Include="ButtonObject.cs" />
+    <Compile Include="ColliderObject.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="ICollider.cs" />
     <Compile Include="IObject.cs" />

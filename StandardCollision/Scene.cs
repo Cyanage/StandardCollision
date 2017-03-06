@@ -98,7 +98,7 @@ namespace StandardCollision
                     {
                         if (col2.isDynamic == false)  //all static colldiers
                         {
-                            if (col.isActive == false || col2.isActive == false)  //if either of these are not active dont collide them 
+                            if (col.isColliderActive == false || col2.isColliderActive == false)  //if either of these are not active dont collide them 
                             {
                                 //TODO: find distance here, before checking intersection
                                 if (col.Rect.Intersects(col2.Rect)) //checks if objects intersect
@@ -120,7 +120,7 @@ namespace StandardCollision
                     {
                         if (colliderList[i2].isDynamic == true)  //all dynamic colliders
                         {
-                            if (colliderList[i].isActive == false || colliderList[i2].isActive == false)  //if either of these 
+                            if (colliderList[i].isColliderActive == false || colliderList[i2].isColliderActive == false)  //if either of these 
                             {
                                 //TODO: find distance here, before checking intersection
                                 if (colliderList[i].Rect.Intersects(colliderList[i2].Rect)) //checks if objects intersect
